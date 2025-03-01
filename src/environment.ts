@@ -3,7 +3,8 @@ import * as fs from "fs";
 const GH_APP_CLIENT_ID = 'GH_APP_CLIENT_ID';
 const GH_APP_CLIENT_SECRET = 'GH_APP_CLIENT_SECRET';
 const GH_APP_ID = 'GH_APP_ID';
-const GH_APP_PRIVATE_KEY_FILE = 'GH_APP_PRIVATE_KEY_FILE'
+const GH_APP_PRIVATE_KEY = 'GH_APP_PRIVATE_KEY';
+const GH_APP_PRIVATE_KEY_FILE = 'GH_APP_PRIVATE_KEY_FILE';
 
 interface IEnvironment {
   ghAppClientId: string;
@@ -35,12 +36,17 @@ class Environment implements IEnvironment {
       throw Error(this.errorMessage(GH_APP_ID));
     }
 
-    const ghAppPrivateKeyFile = process.env[GH_APP_PRIVATE_KEY_FILE];
-    if (!ghAppPrivateKeyFile) {
-      throw Error(this.errorMessage(GH_APP_PRIVATE_KEY_FILE));
-    }
+    // const ghAppPrivateKeyFile = process.env[GH_APP_PRIVATE_KEY_FILE];
+    // if (!ghAppPrivateKeyFile) {
+    //   throw Error(this.errorMessage(GH_APP_PRIVATE_KEY_FILE));
+    // }
 
-    this.ghAppPrivateKey = fs.readFileSync(ghAppPrivateKeyFile).toString('utf-8');
+    // this.ghAppPrivateKey = fs.readFileSync(ghAppPrivateKeyFile).toString('utf-8');
+
+    this.ghAppPrivateKey = process.env[GH_APP_PRIVATE_KEY];
+    if (!this.ghAppPrivateKey) {
+      throw Error(this.errorMessage(GH_APP_PRIVATE_KEY));
+    }
   }
 
   errorMessage(envVar: string) {
