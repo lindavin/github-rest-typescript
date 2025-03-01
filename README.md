@@ -11,7 +11,8 @@ Example run:
 dotenvx run -- ts-node src/environment.ts
 ```
 
-This repo shows have to fetch files using GitHub's REST API and a GitHub app.
+This repo shows have to fetch files using GitHub's REST API, a GitHub app, and nodejs.
+and typescript.
 For authentication, you'll need to:
 1. create a new GitHub app and
   1. install it your account
@@ -22,5 +23,7 @@ For authentication, you'll need to:
   We use base64 as an easy way to get its contents into one line.
 
 `src/fetch-file.ts` and `src/gh-installation-access-token.ts#main` demonstrates
-how to fetch a file via two different ways (octokit sdk and manual authentication respectively). 
-Ultimately, they both rely on an installation access token.
+how to fetch a file by authenticating as an GitHub App Installation (i.e. leveraging
+an [installation access token](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-an-installation-access-token-for-a-github-app#about-installation-access-tokens))
+via two different ways (octokit sdk and manual authentication respectively).
+[Here](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation) is the official documentation on how to do that.
