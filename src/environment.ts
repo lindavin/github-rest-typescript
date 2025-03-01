@@ -51,7 +51,7 @@ class Environment implements IEnvironment {
 
     // this.ghAppPrivateKey = fs.readFileSync(ghAppPrivateKeyFile).toString('utf-8');
 
-    this.ghAppPrivateKey = process.env[GH_APP_PRIVATE_KEY];
+    this.ghAppPrivateKey = Buffer.from(process.env[GH_APP_PRIVATE_KEY], 'base64').toString('utf-8');
     if (!this.ghAppPrivateKey) {
       throw Error(this.errorMessage(GH_APP_PRIVATE_KEY));
     }

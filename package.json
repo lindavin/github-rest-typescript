@@ -20,9 +20,11 @@
     "@octokit/auth-app": "^7.1.5",
     "@octokit/core": "^6.1.4",
     "@octokit/oauth-app": "^7.1.6",
+    "jsonwebtoken": "^9.0.2",
     "pino": "^9.6.0"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.9",
     "@types/node": "^22.13.7",
     "typescript": "^5.8.2"
   }
