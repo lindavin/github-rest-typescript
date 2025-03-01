@@ -1,0 +1,29 @@
+{
+  "name": "github-rest-typescript",
+  "version": "1.0.0",
+  "description": "Call GitHub REST API via GitHub app",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lindavin/github-rest-typescript.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lindavin/github-rest-typescript/issues"
+  },
+  "homepage": "https://github.com/lindavin/github-rest-typescript#readme",
+  "dependencies": {
+    "@octokit/auth-app": "^7.1.5",
+    "@octokit/core": "^6.1.4",
+    "@octokit/oauth-app": "^7.1.6",
+    "pino": "^9.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.7",
+    "typescript": "^5.8.2"
+  }
+}
