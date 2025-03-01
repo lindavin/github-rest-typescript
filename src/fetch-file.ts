@@ -1,11 +1,34 @@
 import { appOctokit } from "./auth";
 
-async function fetchFile() {
-
-  // Send requests as GitHub App
-  const response = await appOctokit.request("GET /app");
-  console.log("authenticated as %s", response.data.slug as string);
+type Args = {
+  owner: string,
+  repo: string,
+  path: string,
+  ref: string,
 }
 
-fetchFile();
+type FileResponseBody = {
+  content?: string,
+  encoding: string,
+}
+
+async function fetchFile(args: Args) {
+
+  // Send requests as GitHub App
+  const response = await appOctokit.request("GET /repos/{owner}/{repo}/contents/{path}", args);
+  const { content, encoding } = response.data as FileResponseBody;
+
+  if (content && Buffer.isEncoding(encoding)) {
+    return Buffer.from(content, encoding).toString();
+  }
+
+  console.error('bad case')
+}
+
+fetchFile({
+  owner: 'OAI',
+  repo: 'OpenAPI-Specification',
+  path: 'SPECIAL_INTEREST_GROUPS.md',
+  ref: 'main',
+});
 
