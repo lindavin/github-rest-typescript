@@ -3,16 +3,15 @@ import { appOctokit } from "./auth";
 type Args = {
   owner: string,
   repo: string,
-  path: string,
+  path: string, // path has point to a file; not a directory!
 }
 
 type FileResponseBody = {
-  content?: string,
+  content: string,
   encoding: string,
 }
 
 async function fetchFile(args: Args) {
-
   // Send requests as GitHub App
   const response = await appOctokit.request("GET /repos/{owner}/{repo}/contents/{path}", args);
   const { content, encoding } = response.data as FileResponseBody;

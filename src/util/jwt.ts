@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 
 import { environment } from "../environment";
 
-function getJWT(): string {
+export function getJWTForGH(): string {
   const nowInSeconds = Math.floor(Date.now()/1000);
   const payload = {
     iat: nowInSeconds - 60,
@@ -17,11 +17,11 @@ function getJWT(): string {
 }
 
 async function main() {
-  console.log(getJWT())
+  console.log(getJWTForGH())
   const res = await fetch('https://api.github.com/app', {
     headers: {
       Accept: 'application/vnd.github+json',
-      Authorization: `Bearer ${getJWT()}`,
+      Authorization: `Bearer ${getJWTForGH()}`,
       'X-GitHub-Api-Version': '2022-11-28',
     }
   });
