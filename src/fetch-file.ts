@@ -4,7 +4,6 @@ type Args = {
   owner: string,
   repo: string,
   path: string,
-  ref: string,
 }
 
 type FileResponseBody = {
@@ -29,6 +28,5 @@ fetchFile({
   owner: 'OAI',
   repo: 'OpenAPI-Specification',
   path: 'SPECIAL_INTEREST_GROUPS.md',
-  ref: 'main',
-});
+}).then(console.log);
 
