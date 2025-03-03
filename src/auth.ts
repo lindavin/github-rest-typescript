@@ -8,7 +8,7 @@ export const appOctokit = new Octokit({
   auth: {
     appId: environment.ghAppId,
     privateKey: environment.ghAppPrivateKey,
-    clientId: environment.ghAppClientId,
+    // clientId: environment.ghAppClientId, this isn't needed
     installationId: environment.ghAppInstallationId,
   },
 });

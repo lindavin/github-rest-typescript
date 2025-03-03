@@ -37,9 +37,9 @@ async function main() {
   const getUrl = ({ filePath, owner, repo }) => `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}`
   const res = await fetch(
     getUrl({
-      filePath: 'openapi/openapi.yaml',
-      owner: 'Redocly',
-      repo: 'openapi-starter'
+      filePath: 'package.json',
+      owner: 'lindavin',
+      repo: 'simple-api-script-jobs' // test on private repos
     }),
     {
       headers: {
